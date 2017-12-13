@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset=UTF-8">
+<meta charset="UTF-8">
 <title>Livros de Java, Android, iPhone, Ruby, PHP e muito mais</title>
 </head>
 <body>
