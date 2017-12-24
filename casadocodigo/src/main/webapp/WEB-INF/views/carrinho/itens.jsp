@@ -4,9 +4,9 @@
 <%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
 <!DOCTYPE html>
 <html>
+<c:url value="/" var="contextPath" />
 <head>
-	<c:url value="/" var="contextPath" />
-	  <meta charset="utf-8"/>
+	   <meta charset="utf-8"/>
 		  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
 		  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 		<link rel="icon"
@@ -41,10 +41,9 @@
 		<link rel="canonical" href="http://www.casadocodigo.com.br/" />	
 </head>
 <body>
-
   <header id="layout-header">
 		<div class="clearfix container">
-			<a href="/" id="logo">
+			<a href="${contextPath}" id="logo">
 			</a>
 			<div id="header-content">
 				<nav id="main-nav">
@@ -98,7 +97,7 @@
 		      <tbody>
 		      	<c:forEach items="${carrinhoCompras.itens }" var="item">
 			      <tr>
-			          <td class="cart-img-col"><img src="http://cdn.shopify.com/s/files/1/0155/7645/products/css-eficiente-featured_large.png?v=1435245145" width="71px" height="100px"/></td>
+			          <td class="cart-img-col"><img src="${item.produto.imagem }" width="71px" height="100px"/></td>
 			          <td class="item-title">${item.produto.titulo }</td>
 			          <td class="numeric-cell">R$ ${item.preco }</td>
 			          <td class="quantity-input-cell">

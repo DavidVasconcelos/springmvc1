@@ -31,6 +31,11 @@
 			<form:input path="dataLancamento"/>
 			<form:errors path="dataLancamento"/>
 		</div>	
+		<div>
+			<label>Imagem</label>
+			<form:input path="imagem"/>
+			<form:errors path="imagem"/>
+		</div>	
 		<c:forEach items="${tipos }" var="tipoPreco" varStatus="status">
 			<div>
 				<label>${tipoPreco }</label>

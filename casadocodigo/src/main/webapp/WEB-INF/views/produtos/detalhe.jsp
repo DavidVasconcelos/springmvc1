@@ -4,8 +4,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html>
-<head>
 <c:url value="/" var="contextPath" />
+<head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport"
@@ -46,7 +46,7 @@
 
 	<header id="layout-header">
 		<div class="clearfix container">
-			<a href="/" id="logo"> </a>
+			<a href="${contextPath}" id="logo"> </a>
 			<div id="header-content">
 				<nav id="main-nav">
 					<ul class="clearfix">
@@ -75,7 +75,7 @@
 		<header id="product-highlight" class="clearfix">
 			<div id="product-overview" class="container">
 				<img width="280px" height="395px"
-					src="http://cdn.shopify.com/s/files/1/0155/7645/products/css-eficiente-featured_large.png?v=1435245145"
+					src="${produto.imagem }"
 					class="product-featured-image" />
 				<h1 class="product-title">${produto.titulo }</h1>
 				<p class="product-author"><span class="product-author-link"></span></p>

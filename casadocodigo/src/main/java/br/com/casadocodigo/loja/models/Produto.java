@@ -33,6 +33,8 @@ public class Produto {
 	
 	private String sumarioPath;
 	
+	private String imagem;
+	
 	public int getId() {
 		return Id;
 	}
@@ -76,8 +78,14 @@ public class Produto {
 	}
 	public void setSumarioPath(String sumarioPath) {
 		this.sumarioPath = sumarioPath;
-	}
+	}	
 	
+	public String getImagem() {
+		return imagem;
+	}
+	public void setImagem(String imagem) {
+		this.imagem = imagem;
+	}
 	@Override
 	public String toString() {
 		return "Produto [titulo=" + titulo + ", descricao=" + descricao + ", paginas=" + paginas + "]";
