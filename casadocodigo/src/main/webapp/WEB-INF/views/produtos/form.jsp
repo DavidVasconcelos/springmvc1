@@ -40,14 +40,19 @@
 	        <li><a href="${s:mvcUrl('PC#listar').build()}">Lista de Produtos</a></li>
 	        <li><a href="${s:mvcUrl('PC#form').build()}">Cadastro de Produtos</a></li>
 	      </ul>
-	      <ul class="nav navbar-nav navbar-right">
-	       	<li>
-	       		<a href="#">
-			        <security:authentication property="principal" var="usuario"/>
-			        Usuário: ${usuario.username }
-	       		</a>
-	       	</li>
-	      </ul>
+	      <security:authorize access="hasRole('ROLE_ADMIN')">
+		      <ul class="nav navbar-nav navbar-right">
+		       	<li>
+		       		<a href="#">
+			       		<security:authentication property="principal" var="usuario"/>
+				        Usuário: ${usuario.username }				               	       
+		       		</a>
+		       	</li>
+		       	<li>
+		       		<a href="<c:url value="/logout"/>">Deslogar</a>
+		       	</li>
+		      </ul>		     
+	      </security:authorize>	
 	    </div><!-- /.navbar-collapse -->
 	  </div>
 	</nav>
