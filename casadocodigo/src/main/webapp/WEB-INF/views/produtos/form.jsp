@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib prefix="s" uri="http://www.springframework.org/tags"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -37,6 +39,14 @@
 	      <ul class="nav navbar-nav">
 	        <li><a href="${s:mvcUrl('PC#listar').build()}">Lista de Produtos</a></li>
 	        <li><a href="${s:mvcUrl('PC#form').build()}">Cadastro de Produtos</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	       	<li>
+	       		<a href="#">
+			        <security:authentication property="principal" var="usuario"/>
+			        Usuário: ${usuario.username }
+	       		</a>
+	       	</li>
 	      </ul>
 	    </div><!-- /.navbar-collapse -->
 	  </div>

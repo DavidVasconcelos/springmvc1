@@ -2,6 +2,9 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="security" %>
+<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
 <!DOCTYPE html>
 <html>
 <c:url value="/" var="contextPath" />
@@ -51,6 +54,9 @@
 			<div id="header-content">
 				<nav id="main-nav">
 					<ul class="clearfix">
+						<security:authorize access="isAuthenticated()">
+							<li><a href="${s:mvcUrl('PC#form').build() }" rel="nofollow">Cadastro de Produtos</a></li>
+						</security:authorize>
 						<li><a href="/carrinho" rel="nofollow">Seu Carrinho (${carrinhoCompras.quantidade })</a></li>
 						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre Nós</a></li>
 						<li><a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas Frequentes</a></li>
@@ -86,7 +92,7 @@
 
 
 		<section class="buy-options clearfix">
-			<form action="<c:url value="/carrinho/add"/>" method="post" class="container">
+			<form:form servletRelativeAction="/carrinho/add" method="post" cssClass="container">
 				<ul id="variants" class="clearfix">
 				    <input type="hidden" value="${produto.id }" name="produtoId" />
 					<c:forEach items="${produto.precos }" var="preco">
@@ -98,8 +104,8 @@
 						</li>
 					</c:forEach>
 				</ul>
-				<button type="submit" class="submit-image icon-basket-alt" alt="Compre Agora" title="Compre Agora '${produto.titulo }'!"></button>
-			</form>
+				<button type="submit" class="submit-image icon-basket-alt" alt="Compre Agora" title="Compre Agora '${produto.titulo }'!"></button>				
+			</form:form>
 		</section>
 
 		<div class="container">
