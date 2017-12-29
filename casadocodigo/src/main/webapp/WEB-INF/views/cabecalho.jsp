@@ -9,6 +9,7 @@
 <html>
 <c:url value="/" var="contextPath" />
 <c:url value="/resources/css" var="cssPath" />
+<c:url value="/resources/js" var="jsPath" />
 <head>
 <meta charset="utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -35,6 +36,15 @@
 <link href="${cssPath}/produtos.css" rel="stylesheet" type="text/css" media="all" />
 <link href="${cssPath}/book-collection.css" rel="stylesheet" type="text/css" media="all" />
 <link rel="canonical" href="http://www.casadocodigo.com.br/" />
+<link rel="stylesheet" href="${cssPath}/bootstrap.min.css">
+<link rel="stylesheet" href="${cssPath}/bootstrap-theme.min.css.map">
+
+<style type="text/css">
+	#locale {
+		font-size: 10px;
+	}
+
+</style>
 </head>
 <body class="produto">
 
@@ -48,23 +58,35 @@
 						<security:authorize access="isAuthenticated()">
 							<li><a href="${s:mvcUrl('PC#form').build() }" rel="nofollow">Cadastro de Produtos</a></li>
 						</security:authorize>
-						<li><a href="<c:url value="/carrinho"/>" rel="nofollow">Seu Carrinho (${carrinhoCompras.quantidade })</a></li>
-						<li><a href="/pages/sobre-a-casa-do-codigo" rel="nofollow">Sobre Nós</a></li>
-						<li><a href="/pages/perguntas-frequentes" rel="nofollow">Perguntas Frequentes</a></li>
-					</ul>
-				</nav>
+						<li>
+							<a href="<c:url value="/carrinho"/>" rel="nofollow">
+								<s:message code="menu.carrinho" arguments="${carrinhoCompras.quantidade}" />
+							</a>
+						</li>
+						<li><a href="#" rel="nofollow"><fmt:message key="menu.sobre"/></a></li>		
+						<li>	
+							<a class="localeLink" href="?locale=pt" rel="nofollow">
+				                <span id="locale" class="pull-right"><fmt:message key="menu.pt"/></span>
+				            </a>
+						</li>
+						<li>			
+							<a class="localeLink" href="?locale=en_US" rel="nofollow">
+				                <span id="locale" class="pull-right"><fmt:message key="menu.en"/></span>
+				            </a>									
+						</li>
+				</nav>				
 			</div>
 		</div>
 	</header>
 	<nav class="categories-nav">
 		<ul class="container">
-			<li class="category"><a href="http://www.casadocodigo.com.br">Home</a></li>
-			<li class="category"><a href="/collections/livros-de-agile">Agile</a></li>
-			<li class="category"><a href="/collections/livros-de-front-end">Front End</a></li>
-			<li class="category"><a href="/collections/livros-de-games">Games</a></li>
-			<li class="category"><a href="/collections/livros-de-java">Java</a></li>
-			<li class="category"><a href="/collections/livros-de-mobile">Mobile</a></li>
-			<li class="category"><a href="/collections/livros-desenvolvimento-web">Web</a></li>
-			<li class="category"><a href="/collections/outros">Outros</a></li>
+			<li class="category"><a href="#"><fmt:message key="navegacao.categoria.home"/></a></li>
+			<li class="category"><a href="#"><fmt:message key="navegacao.categoria.agile"/></a></li>
+			<li class="category"><a href="#"><fmt:message key="navegacao.categoria.front_end"/></a></li>
+			<li class="category"><a href="#"><fmt:message key="navegacao.categoria.games"/></a></li>
+			<li class="category"><a href="#"><fmt:message key="navegacao.categoria.java"/></a></li>
+			<li class="category"><a href="#"><fmt:message key="navegacao.categoria.mobile"/></a></li>
+			<li class="category"><a href="#"><fmt:message key="navegacao.categoria.web"/></a></li>
+			<li class="category"><a href="#"><fmt:message key="navegacao.categoria.outros"/></a></li>
 		</ul>
 	</nav>

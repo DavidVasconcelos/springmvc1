@@ -4,7 +4,6 @@
 <%@include file="/WEB-INF/views/cabecalho.jsp" %>
 			
 	<section id="index-section" class="container middle">
-
 		<h1 class="cdc-call">Últimos dias com os preços promocionais. Aproveite!</h1>
 		<ul class="clearfix book-collection">
 

@@ -76,6 +76,10 @@
 			</div>
 		</div>
 	</footer>
+	
+	<script type="text/javascript" src="${jsPath}/jquery-3.2.1.min.js"></script>
+	<script type="text/javascript" src="${jsPath}/bootstrap.min.js"></script>
+	<script type="text/javascript" src="${jsPath}/site.js"></script>
 
 </body>
 </html>
